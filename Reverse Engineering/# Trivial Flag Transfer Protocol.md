@@ -1,4 +1,4 @@
-# Trivial Flag Transfer Protocol
+# GDB Baby Step 1
 
 ## Solution
 Used gdb to open the file and used man gdb before it and learnt its basics
@@ -73,3 +73,4 @@ None
 
 # Resources
 https://www.rapidtables.com/convert/number/hex-to-decimal.html?x=86342
+
