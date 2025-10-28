@@ -30,7 +30,8 @@ root@ASUS-ZN14:/mnt/c/Users/naira/Downloads/sstv# sstv -d /mnt/c/Users/naira/Dow
 picoCTF{beep_boop_im_in_space}
 ```
 
-#Concepts Learnt
+# Concepts Learnt
+
 Learnt the basic function of sstv
 
 
@@ -41,3 +42,4 @@ None
 
 # Resources
 https://github.com/colaclanth/sstv
+
