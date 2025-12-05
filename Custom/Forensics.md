@@ -57,3 +57,30 @@ Learned about the hex dump of a png file
 
 ## References
 https://en.wikipedia.org/wiki/PNG
+
+
+# RAR of the Abyss
+### Two philosophers peer into the networked abyss and swap a secret. Use the secret to decrypt the Abyss’ RAwR and pull your flag from the void.
+
+
+## My Solve
+
+Opened the pcap file in wireshark and analysed the tcp packets and there was a convo bw two people 
+in which the password was present. Extracted the raw tcp packet which had the ascii of "RAR" as a 
+.rar file and extracted it with the password to replace the empty flag with the actual flag file.
+catted the new file 
+
+**Flag:** nite{thus_sp0k3_th3_n3tw0rk_f0r3ns1cs_4n4lyst}
+
+
+```
+winrar x -p"b3y0ndG00dand3vil" abyss_aarchive.rar
+
+```
+
+## What I Learned
+Learned how to work with tcp packets 
+
+## References
+None
+
