@@ -84,3 +84,32 @@ Learned how to work with tcp packets
 ## References
 None
 
+
+# Ninetails
+
+### Looks like I got a little too clever and hid the flag as a password in Firefox, tucked away like one of NineTails’ many tails. Recover the "logins" and the "key4" and let it guide you to the flag.
+
+Hint:
+I named my Ninetails "j4gjesg4", quite a peculiar name isn't it?
+
+
+## My Solve
+Extracted the rar file and got an ad1 file which i opened on ftk imager. Inspected the file tree and 
+found the folder GIC2024/AppData/Roaming/Mozilla/Firefox/Profiles/j4gjesg4.default-release similar to the hint,
+Exported the logins.json nd key4.db files, took some help from a friend and got my hands on a tool named firefox
+decrypt on the folder and got the flag
+
+**Flag:** GCTF{m0zarella_f1ref0x_p4ssw0rd}
+
+
+```
+python firefox_decrypt.py -d "C:\Users\naira\Desktop\j4gjesg4.default-release" 
+```
+
+## What I Learned
+Learned how to use firefox decrpyytt
+
+## References
+None
+
+
