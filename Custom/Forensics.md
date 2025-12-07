@@ -113,3 +113,28 @@ Learned how to use firefox decrpyytt
 None
 
 
+# Re Draw
+### Her screen went black and a strange command window flickered to life, lines of text flashed across before everything went silent. Moments later, the system crashed. By sheer luck, we recovered a memory dump.
+
+Note: There are three stages to this challenge and you will find three flags.
+
+What we know: just before the crash, a black command window flickered across the screen, something in its output might still be visible if you dig through memory. She was drawing when it happened, and remnants of a painting program linger, which could reveal more if inspected in the right way. Finally, a mysterious archive hides deeper in memory, likely holding the last piece of her work.
+
+Hint: Learn up on volatility 2 and its various plugins and what they are used for.
+
+
+## My Solve
+**Flag:** flag{th1s_1s_th3_1st_st4g3!!}
+	  flag{Good_BoY_good_girL}
+	  flag{w3Il_3rd_stage_was_easy}
+
+first i used volatility as the hint suggested and found a base64 string. after decoding it in cyberchef i got the first flag. next i checked the running processes and noticed that mspaint.exe had pid 2424 and the description mentioned a drawing before the crash. i memdumped pid 2424 and opened the resulting 2424.data file in gimp which revealed an image. then i looked into the WinRar.exe process dump and recovered an Important.rar file using the dumpfiles plugin. the rar file needed a password and the challenge said the password was the NTLM hash of alissas account password in uppercase. i used hashdump to get the hash converted it to uppercase and used it to unlock the rar which gave me the final flag.
+
+## What I Learned
+Learnt how to use volatility and its various plugins
+
+## References
+ChatGPT
+
+
+
